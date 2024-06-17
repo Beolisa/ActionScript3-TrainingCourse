@@ -16,9 +16,9 @@ package
             onwerName.addLand(land1);
             
             land1.sides = [300, 200];
+            trace(land1.CalArea());
 
-            trace(onwerName.getNum());
-
+            //trace(onwerName.getNum());
         }
     }
 }
