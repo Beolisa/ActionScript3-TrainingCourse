@@ -1,0 +1,14 @@
+{
+	"config": "flex",
+	"type" : "app",
+	"compilerOptions": {
+		"source-path": [
+			"src"
+		],
+		"output": "bin/Main.swf",
+		"target-player": "32.0",
+		"static-link-runtime-shared-libraries": true
+	},
+	"mainClass": "Main",
+	"additionalOptions": ""
+}
