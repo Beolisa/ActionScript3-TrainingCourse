@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": 
+    [
+        {
+            "type": "swf",
+            "request": "launch",
+            "name": "Launch cty task1",
+            "program": "Task_1/bin/Main.swf",
+            "runtimeExecutable": "D:/flexairsdk/runtimes/player/32.0/flashplayer_debug.exe"
+        },
+        {
+            "type": "swf",
+            "request": "launch",
+            "name": "Launch home task1",
+            "program": "Task_1/bin/Main.swf",
+            "runtimeExecutable": "D:/flexairsdk/runtimes/player/32.0/flashplayer_debug.exe"
+        },
+        {
+            "type": "swf",
+            "request": "launch",
+            "name": "Launch cty task2",
+            "program": "Task_2/bin/Main.swf",
+            "runtimeExecutable": "D:/flexairsdk/runtimes/player/32.0/flashplayer_debug.exe"
+        },{
+            "type": "swf",
+            "request": "launch",
+            "name": "Launch home task2",
+            "program": "Task_2/bin/Main.swf",
+            "runtimeExecutable": "D:/flexairsdk/runtimes/player/32.0/flashplayer_debug.exe"
+        },
+
+    ]
+}

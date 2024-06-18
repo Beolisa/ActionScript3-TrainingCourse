@@ -1,6 +1,7 @@
 package Training2
 {
-    public interface landChangeListener {
+    public interface LandChangeListener
+    {
         function onLandSizeChanged(values:Array):void;
     }
 }
