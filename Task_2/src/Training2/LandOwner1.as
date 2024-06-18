@@ -1,23 +1,18 @@
 package Training2
 {
-    public class landOwner
+    public class LandOwner1
     {
         private var _name:String;
         private var _lands:Array;
 
         // Constructor
-        public function landOwner(name:String)
+        public function LandOwner1(name:String)
         {
             _name = name;
             _lands = [];
         }
 
-        public function get lands():Array
-        {
-            return this._lands;
-        }
-
-        public function addLand(land:landPlot):void
+        public function addLand(land:Land):void
         {
             _lands.push(land);
         }
@@ -34,7 +29,6 @@ package Training2
 
         public function getNum():int
         {
-            // Trả về số lượng mảnh đất mà 1 người chủ có thể sở hữu
             return _lands.length;
         }
 

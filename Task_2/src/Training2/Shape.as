@@ -1,49 +1,86 @@
-package Training2 {
-    public class Shape {
+package Training2
+{
+    public class Shape
+    {
         protected var _sides:Array;
+        private var _arr:Array;
+
         protected var nArea:int;
         protected var nPeri:int;
+        private var _status:Boolean = true;
 
-        public function Shape() {}
-
-        protected function checkLength(value: Array):void
+        public function Shape()
         {
-            if (value.length < 2) 
-                throw new Error("Invalid shape.");
+            status = true;
         }
 
-        protected function checkData(value: Array):void
+        public function set status(value:Boolean):void
         {
-            for (var i:int; i < value.length; i++) {
-                if (value[i] < 0) {
+            _status = value;
+        }
+
+        protected function checkLength(value:Array):void
+        {
+            if (_status == true)
+            {
+                if (value.length < 2)
+                    throw new Error("Invalid shape.");
+            }
+
+        }
+
+        protected function checkData(value:Array):void
+        {
+            for (var i:int; i < value.length; i++)
+            {
+                if (value[i] < 0)
+                {
                     throw new Error("Values must be positive numbers.");
                 }
             }
         }
 
-        public function set sides(value:Array):void 
+        public function set sides(value:Array):void
         {
-           this.checkData(value);
-           this.checkLength(value);
+            this.checkData(value);
+            this.checkLength(value);
 
             _sides = new Array();
-            for (var i: int = 0; i < value.length; i++) {
+            for (var i:int = 0; i < value.length; i++)
+            {
                 _sides.push(value[i]);
             }
+
+            _arr = _sides;
             nPeri = 0;
             nArea = 0;
         }
 
-        public function CalArea():int 
+        public function get arr():Array
         {
-            if (nArea != 0) {
+            return _arr;
+        }
+
+        public function CalArea():int
+        {
+            if (nArea != 0)
+            {
                 nArea = 0;
             }
-            
+
             var leng:int = _sides.length;
             var s:int = 0;
-                        
-            switch (leng) {
+
+            switch (leng)
+            {
+                case 1: // A square
+                    nArea = _sides[0] * 4;
+                    break;
+
+                case 2: // A rectangle
+                    nArea = _sides[0] * _sides[1];
+                    break;
+
                 case 3: // A triangle
                     s = (_sides[0] + _sides[1] + _sides[2]) / 2;
                     nArea = Math.sqrt(s * (s - _sides[0]) * (s - _sides[1]) * (s - _sides[2]));
@@ -57,12 +94,12 @@ package Training2 {
                     var angleAC:int;
 
                     s = (a + b + c + d) / 2; // Semiperimeter
-                    
+
                     var angleACRad:int = angleAC * (Math.PI / 180); // Convert angle to radians
-                    
+
                     nArea = Math.sqrt(
-                        (s - a) * (s - b) * (s - c) * (s - d) - 
-                        a * b * c * d * Math.cos(angleACRad / 2) * Math.cos(angleACRad / 2));
+                            (s - a) * (s - b) * (s - c) * (s - d) -
+                            a * b * c * d * Math.cos(angleACRad / 2) * Math.cos(angleACRad / 2));
 
                     break;
 
@@ -70,32 +107,34 @@ package Training2 {
                     nArea = Math.floor(1.72 * Math.pow(_sides[0], 2));
                     break;
 
-                default:    
+                default:
                     throw new Error("Input an invalid shape.");
             }
 
             return nArea;
         }
 
-        public function CalPerimeter():int 
+        public function CalPerimeter():int
         {
-            if (nPeri != 0) {
+            if (nPeri != 0)
+            {
                 nPeri = 0;
             }
 
-            for each (var side:int in _sides) {
+            for each (var side:int in _sides)
+            {
                 nPeri += side;
             }
 
             return nPeri;
         }
 
-        public function toString():String 
+        public function toString():String
         {
             return "Shape with " + _sides.length + " sides " + _sides;
         }
 
-        public function getLength():int 
+        public function getLength():int
         {
             return this._sides.length;
         }
