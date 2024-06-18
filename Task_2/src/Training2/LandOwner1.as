@@ -1,12 +1,12 @@
 package Training2
 {
-    public class landOwner
+    public class LandOwner1
     {
         private var _name:String;
         private var _lands:Array;
 
         // Constructor
-        public function landOwner(name:String)
+        public function LandOwner1(name:String)
         {
             _name = name;
             _lands = [];

@@ -32,7 +32,7 @@ package Training2
                 var height:Number = landArr[slot].arr[1] ? landArr[slot].arr[1] : null;
                 if ((witdth && witdth != arr[0]) || (height && height != arr[1]))
                 {
-                    LandOwner.nhanThongBaoThayDoi(this);
+                    LandOwner1.nhanThongBaoThayDoi(this);
                 }
             }
         }

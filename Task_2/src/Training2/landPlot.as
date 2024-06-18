@@ -1,13 +1,13 @@
 package Training2
 {
-    public class LandPlot extends Shape
+    public class landPlot extends Shape
     {
-        private var _owner:LandOwner;
+        private var _owner:landOwner;
 
         private var landArr:Array;
 
         // Constructor
-        public function LandPlot()
+        public function landPlot()
         {
             landArr = new Array();
         }

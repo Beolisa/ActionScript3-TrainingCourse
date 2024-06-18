@@ -2,7 +2,7 @@ package
 {
     import flash.display.Sprite;
     import Training2.Shape;
-    import Training2.LandPlot;
+    // import Training2.LandPlot;
     import Training2.Land;
 
     public class Main extends Sprite
@@ -25,7 +25,7 @@ package
         {
             var listLand:Land = new Land();
 
-            for (var i:int = 1; i <= 4; i++)
+            for (var i:int = 0; i < 4; i++)
             {
                 var ranLand:Shape = randomShapeLand();
                 listLand.addLand(ranLand);
@@ -65,9 +65,13 @@ package
                     var square:Shape = new Shape();
                     square.status = false;
                     square.sides = sideArr;
+                    return square;
 
                 default:
+                    sideArr = random(2);
                     var rec1:Shape = new Shape();
+                    rec1.status = false;
+                    rec1.sides = sideArr;
                     return rec1;
             }
         }
