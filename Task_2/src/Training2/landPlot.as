@@ -12,6 +12,11 @@ package Training2
             landArr = new Array();
         }
 
+        public function get sides():Array
+        {
+            return _sides;
+        }
+
         override public function set sides(value:Array):void
         {
             super.sides = value;

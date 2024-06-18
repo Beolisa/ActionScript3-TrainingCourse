@@ -73,6 +73,14 @@ package Training2
 
             switch (leng)
             {
+                case 1: // A square
+                    nArea = _sides[0] * 4;
+                    break;
+
+                case 2: // A rectangle
+                    nArea = _sides[0] * _sides[1];
+                    break;
+
                 case 3: // A triangle
                     s = (_sides[0] + _sides[1] + _sides[2]) / 2;
                     nArea = Math.sqrt(s * (s - _sides[0]) * (s - _sides[1]) * (s - _sides[2]));
