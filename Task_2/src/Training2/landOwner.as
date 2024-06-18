@@ -10,6 +10,10 @@ package Training2
             _lands = [];
         }
 
+        public function get lands():Array {
+            return this._lands;
+        }
+
         public function addLand(land:landPlot):void {
             _lands.push(land);
         }
@@ -22,7 +26,7 @@ package Training2
             return _name;
         }
 
-        public function getNum():int {
+        public function getNum():int { //Trả về số lượng mảnh đất mà 1 người chủ có thể sở hữu
             return _lands.length;
         }
     }

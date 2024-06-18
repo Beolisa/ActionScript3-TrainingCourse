@@ -10,6 +10,11 @@ package Training2
             _owner = owner;
         }
 
+        public function get sides():Array
+        {
+            return _sides;
+        }
+
         override public function set sides(value:Array):void {
             super.sides = value;
 
