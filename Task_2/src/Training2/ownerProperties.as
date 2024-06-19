@@ -1,19 +1,17 @@
 package Training2
 {
-    public class ownerProperties {
+    public class OwnerProperties {
         private var ownerList:Array;
+
+        public function OwnerProperties() //Constructor
+        {}
 
         public function get owners():Array 
         {
             return ownerList;
         }
 
-        public function ownerProperties()
-        {
-            ownerList = [];
-        }
-
-        public function addOwnerProps(owners:landOwner):void
+        public function addOwnerProps(owners:LandOwner):void
         {
             ownerList.push(owners);
         }

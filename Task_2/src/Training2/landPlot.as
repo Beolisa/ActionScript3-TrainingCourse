@@ -1,30 +1,33 @@
 package Training2
 {
-    public class landPlot extends Shape {
-        private var _owner:landOwner;
+    public class LandPlot extends Shape {
+        private var _owner:LandOwner;
+        public var idx:int = 0;
 
         //Constructor
-        public function landPlot(values:Array, owner:landOwner)
-        {   
-            this._sides = values;
+        public function LandPlot()
+        {}
+
+        public function getName():String 
+        {
+            return _owner.name;
+        }
+
+        public function set landOwner(owner:LandOwner):void
+        {
             _owner = owner;
         }
 
-        public function get sides():Array
+        public function changeSides(values:Array):void 
         {
-            return _sides;
+            this._sides = values;
+            _owner.onLandSizeChanged(_sides);
         }
 
-        override public function set sides(value:Array):void {
-            super.sides = value;
-
-            this.notifyOwner();
+        public function changeOwnerNames(ownerName:String):void 
+        {
+            _owner.name = ownerName;
+            _owner.onLandOwnerChanged(ownerName);
         }
-
-        public function notifyOwner():void {
-            if (_owner) {
-                _owner.onLandSizeChanged(_sides);
-            }
-        }    
     }
 }
