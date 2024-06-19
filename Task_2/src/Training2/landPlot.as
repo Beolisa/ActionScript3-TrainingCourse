@@ -16,12 +16,13 @@ package Training2
         public function set landOwner(owner:LandOwner):void
         {
             _owner = owner;
+            owner.addLand(this);
         }
 
         public function changeSides(values:Array):void 
         {
             this._sides = values;
-            _owner.onLandSizeChanged(_sides);
+            _owner.onLandSizeChanged(_sides, this.idx);
         }
 
         public function changeOwnerNames(ownerName:String):void 

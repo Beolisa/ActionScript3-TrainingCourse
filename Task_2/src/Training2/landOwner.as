@@ -5,7 +5,9 @@ package Training2
         private var _lands:Array;
 
         //Constructor
-        public function LandOwner() {}
+        public function LandOwner() {
+            _lands = new Array();
+        }
 
         public function get name():String {
             return _name;
@@ -22,11 +24,20 @@ package Training2
 
         public function addLand(land:LandPlot):void {
             _lands.push(land);
-            //land.idx = this._lands.length;
+            land.idx = this._lands.length;
         }
         
-        public function onLandSizeChanged(values:Array):void {
+        public function onLandSizeChanged(values:Array, idx:int):void {
             trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
+            
+            // trace("Idx: " + idx);
+            // trace("_lands.length: " + _lands.length);
+            //Notify other lands
+            for (var i:int = 0; i < _lands.length; i++) {
+                if (i != (idx - 1)) {
+                    trace("Land number " + (i + 1) + " has been notified that land " + idx + " had been change to " + values[0] + "x" + values[1]);
+                }
+            }
         }
 
         public function onLandOwnerChanged(ownerName:String):void {

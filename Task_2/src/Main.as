@@ -18,35 +18,17 @@ package
             land1.sides = [100, 200];
             land1.landOwner = owner1;
 
-            land1.changeSides([200,300]);
-            land1.changeOwnerNames("LaLisa");
-
             ////////////////////////////////////////
 
             //Bài 2:
             ////////////////////////////////////////
-            //Trường hợp 1 mảnh đất liền kề
+            //Trường hợp 1 chủ có nhiều mảnh đất
             var land2:LandPlot = new LandPlot();
             land2.sides = [300,400];
+            land2.landOwner = owner1;
+            
+            land2.changeSides([500,600]);
 
-            owner1.addLand(land1);
-            owner1.addLand(land2);
-
-            //trace(land1.idx);
-
-
-        }
-
-        public function getIdx(arr:Array, land:LandPlot):int {
-            for (var i:int = 0; i < arr.length; i++)
-            {
-                if (arr[i] == land)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
         }
     }
 }
