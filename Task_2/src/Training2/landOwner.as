@@ -47,5 +47,12 @@ package Training2
         public function getNum():int { //Trả về số lượng mảnh đất mà 1 người chủ có thể sở hữu
             return _lands.length;
         }
+
+        public function notifyTaxChange():void 
+        {
+            for each (var land:LandPlot in _lands) {
+                land.updateTax();
+            }
+        }
     }
 }

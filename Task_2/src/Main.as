@@ -3,12 +3,14 @@ package
     import flash.display.Sprite;
     import Training2.LandOwner;
     import Training2.LandPlot;
+    import Training2.LandTax;
     import Training2.OwnerProperties;
 
     public class Main extends Sprite
     {
         public function Main()
         {
+            var taxManager:LandTax = LandTax.getInstance();
             //Bài 1:
             ////////////////////////////////////////
             var owner1:LandOwner = new LandOwner();
