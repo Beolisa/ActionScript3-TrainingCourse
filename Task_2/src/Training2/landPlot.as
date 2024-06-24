@@ -41,7 +41,7 @@ package Training2
         {
             var area:Number = _sides[0] * _sides[1];
             var tax:Number = area * taxRate;
-            trace("Tax for land " + idx + ": " + tax);
+            trace("Tax for land " + idx + ": " + tax + " per m2.");
         }
     }
 }

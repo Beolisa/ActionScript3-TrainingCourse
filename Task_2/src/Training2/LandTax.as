@@ -8,7 +8,7 @@ package Training2
         public function LandTax() {
             if (instance) 
             {
-                throw new Error("Singleton class. Use getInstance() to get the single instnace of this class.");
+                throw new Error("Singleton class. Use getInstance() to get the single instance of this class.");
             }
 
             resetTaxRate();
@@ -40,13 +40,7 @@ package Training2
             if (changeCount % 10 == 0) 
             {
                 taxRate *= 1.01; //Increase by 1%
-                notifyOwners();
             }
-        }
-
-        private function notifyOwners():void 
-        {
-            trace("Hello world!!");
         }
     }
 }

@@ -11,6 +11,7 @@ package
         public function Main()
         {
             var taxManager:LandTax = LandTax.getInstance();
+
             //Bài 1:
             ////////////////////////////////////////
             var owner1:LandOwner = new LandOwner();
@@ -28,9 +29,7 @@ package
             var land2:LandPlot = new LandPlot();
             land2.sides = [300,400];
             land2.landOwner = owner1;
-            
-            land2.changeSides([500,600]);
-
+            trace("--------------------------------");
         }
     }
 }
