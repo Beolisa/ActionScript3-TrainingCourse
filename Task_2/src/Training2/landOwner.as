@@ -30,8 +30,6 @@ package Training2
         public function onLandSizeChanged(values:Array, idx:int):void {
             trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
             
-            // trace("Idx: " + idx);
-            // trace("_lands.length: " + _lands.length);
             //Notify other lands
             for (var i:int = 0; i < _lands.length; i++) {
                 if (i != (idx - 1)) {
@@ -53,6 +51,17 @@ package Training2
             for each (var land:LandPlot in _lands) {
                 land.updateTax();
             }
+        }
+
+        public function calTotalTax():Number 
+        {
+            var totalTax:Number = 0;
+            for each (var land:LandPlot in _lands)
+            {
+                totalTax += land.calTax();
+            }
+
+            return totalTax
         }
     }
 }

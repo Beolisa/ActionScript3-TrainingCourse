@@ -21,6 +21,11 @@ package Training2 {
             }
         }
 
+        public function get sides():Array
+        {
+            return _sides;
+        }
+
         public function set sides(value:Array):void 
         {
            this.checkData(value);

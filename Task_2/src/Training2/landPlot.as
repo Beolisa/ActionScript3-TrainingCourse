@@ -5,11 +5,13 @@ package Training2
         private var _owner:LandOwner;
         public var idx:int = 0;
         private var taxRate:Number;
+        private var _plotId:String;
+        private var taxCalculator:LandTax;
 
         //Constructor
         public function LandPlot()
         {
-            taxRate = LandTax.getInstance().currentTaxRate;
+            taxCalculator = LandTax.getInstance();
         }
 
         public function getName():String 
@@ -21,6 +23,16 @@ package Training2
         {
             _owner = owner;
             owner.addLand(this);
+        }
+
+        public function get plotID():String
+        {
+            return _plotId;
+        }
+
+        public function set plotID(plotID:String):void
+        {
+            _plotId = plotID;
         }
 
         public function changeSides(values:Array):void 
@@ -43,5 +55,15 @@ package Training2
             var tax:Number = area * taxRate;
             trace("Tax for land " + idx + ": " + tax + " per m2.");
         }
+
+        public function calTax():Number 
+        {
+            var area:Number = _sides[0] * _sides[1];
+            var taxRate:Number = taxCalculator.currentTaxRate;
+
+            return area * taxRate;
+        }
+
+
     }
 }

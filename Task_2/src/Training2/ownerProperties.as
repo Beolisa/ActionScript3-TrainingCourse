@@ -4,7 +4,9 @@ package Training2
         private var ownerList:Array;
 
         public function OwnerProperties() //Constructor
-        {}
+        {
+            ownerList = new Array();
+        }
 
         public function get owners():Array 
         {
