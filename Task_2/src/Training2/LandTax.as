@@ -26,7 +26,8 @@ package Training2
 
         private function resetTaxRate():void 
         {
-            taxRate = Math.random() * 10;
+            // taxRate = Math.random() * 10;
+            taxRate = 10;
         }
 
         public function get currentTaxRate():Number 

@@ -27,20 +27,13 @@ package Training2
             land.idx = this._lands.length;
         }
         
-        public function onLandSizeChanged(values:Array, idx:int):void {
+        public function onLandSizeChanged(values:Array, plotID:String):void {
             trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
-            
-            //Notify other lands
-            for (var i:int = 0; i < _lands.length; i++) {
-                if (i != (idx - 1)) {
-                    trace("Land number " + (i + 1) + " has been notified that land " + idx + " had been change to " + values[0] + "x" + values[1]);
-                }
-            }
         }
 
-        public function onLandOwnerChanged(ownerName:String):void {
-            trace("The new owner is " + ownerName);
-        }
+        // public function onLandOwnerChanged(ownerName:String):void {
+        //     trace("The new owner is " + ownerName);
+        // }
 
         public function getNum():int { //Trả về số lượng mảnh đất mà 1 người chủ có thể sở hữu
             return _lands.length;

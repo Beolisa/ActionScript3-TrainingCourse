@@ -19,6 +19,11 @@ package Training2
             return _owner.name;
         }
 
+        public function get landOwner():LandOwner
+        {
+            return _owner;
+        }
+
         public function set landOwner(owner:LandOwner):void
         {
             _owner = owner;
@@ -39,21 +44,20 @@ package Training2
         {
             this._sides = values;
             LandTax.getInstance().recordChange();
-            _owner.onLandSizeChanged(_sides, this.idx);
+            _owner.onLandSizeChanged(_sides, _plotId);
             updateTax();
         }
 
-        public function changeOwnerNames(ownerName:String):void 
-        {
-            _owner.name = ownerName;
-            _owner.onLandOwnerChanged(ownerName);
-        }
+        // public function changeOwnerNames(ownerName:String):void 
+        // {
+        //     _owner.name = ownerName;
+        //     _owner.onLandOwnerChanged(ownerName);
+        // }
 
         public function updateTax():void
         {
             var area:Number = _sides[0] * _sides[1];
-            var tax:Number = area * taxRate;
-            trace("Tax for land " + idx + ": " + tax + " per m2.");
+            trace("Tax for land " + idx + ": " + calTax() + " per m2.");
         }
 
         public function calTax():Number 
@@ -63,7 +67,5 @@ package Training2
 
             return area * taxRate;
         }
-
-
     }
 }
