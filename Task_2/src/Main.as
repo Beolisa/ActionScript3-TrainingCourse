@@ -2,7 +2,6 @@ package {
     import flash.display.Sprite;
     import Training2.LandOwner;
     import Training2.LandPlot;
-    import Training2.LandTax;
     import Training2.OwnerProperties;
     import flash.utils.Timer;
     import flash.events.TimerEvent;
@@ -44,15 +43,19 @@ package {
             landList.addLand(land2);
             landList.addLand(land3);
 
-            landList.changeSideAtIndex(0, [222,333]);
+            //landList.changeSideAtIndex(0, [222,333]);
+
+            land1.transferLand(owner2);
+            trace(land1.landOwner.name);
+            trace(owner1.lands.length);
 
             // propList.addOwnerProps(owner1);
             // propList.addOwnerProps(owner2);
 
             // Setup timer to calculate and print taxes every 10 seconds
-            // timer = new Timer(5000);
-            // timer.addEventListener(TimerEvent.TIMER, calandPrintTaxes);
-            // timer.start();
+            timer = new Timer(5000);
+            timer.addEventListener(TimerEvent.TIMER, calandPrintTaxes);
+            timer.start();
         }
 
         private function calandPrintTaxes(event:TimerEvent):void {

@@ -40,11 +40,11 @@ package Training2
             _plotId = plotID;
         }
 
-        public function changeSides(values:Array):void 
+        public function changeSides(values:Array, type:int, ownerName:String):void 
         {
             this._sides = values;
             LandTax.getInstance().recordChange();
-            _owner.onLandSizeChanged(_sides, _plotId);
+            _owner.onLandSizeChanged(_sides, _plotId, type, ownerName);
             updateTax();
         }
 
@@ -66,6 +66,16 @@ package Training2
             var taxRate:Number = taxCalculator.currentTaxRate;
 
             return area * taxRate;
+        }
+
+        public function transferLand(newOwner:LandOwner):void 
+        {
+            if (_owner)
+            {
+                _owner.removeLand(this);
+            }
+            
+            newOwner.addLand(this);
         }
     }
 }

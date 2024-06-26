@@ -1,6 +1,9 @@
 package Training2
 {
     public class LandOwner implements LandChangeListener {
+        public static var TYPE_ME:int = 1;
+        public static var TYPE_NEBOR:int = 2;
+
         private var _name:String;
         private var _lands:Array;
 
@@ -27,8 +30,14 @@ package Training2
             land.idx = this._lands.length;
         }
         
-        public function onLandSizeChanged(values:Array, plotID:String):void {
-            trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
+        public function onLandSizeChanged(values:Array, plotID:String, typeNotify:int, ownerName:String):void {
+            if(typeNotify == LandOwner.TYPE_ME)
+            {
+                trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
+            } else
+            {
+                trace("Neighbor " + _name + " has been notified that owner " + ownerName + "'s land " + values[0] + "x" + values[1]);
+            }
         }
 
         // public function onLandOwnerChanged(ownerName:String):void {
@@ -55,6 +64,15 @@ package Training2
             }
 
             return totalTax
+        }
+
+        public function removeLand(land:LandPlot):void
+        {
+            var index:int = _lands.indexOf(land);
+            if (index != -1)
+            {
+                _lands.splice(index, 1);
+            }   
         }
     }
 }

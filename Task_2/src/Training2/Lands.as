@@ -20,24 +20,32 @@ package Training2 {
             {
                 _lands[index].sides = value;
 
-                trace(_lands[index].sides);
                 // Notify the land owner and neighbors
-                _lands[index].changeSides(_lands[index].sides);
+                _lands[index].changeSides(_lands[index].sides, LandOwner.TYPE_ME, _lands[index].landOwner.name);
             } 
             else 
             {
                 trace("Index out of bounds");
             }
 
-            notifyNeighbors(index);
-        }
-
-        private function notifyNeighbors(index:int):void 
-        {
-            for (var i:int = 0; i < _lands.length; i++) {
+            for (var i:int = 0; i < _lands.length; i++) 
+            {
                 if (i != index)
                 {
-                    trace("Land plot " + _lands[i].plotID + " has been notify that land with index " + index + " has been changed to " + _lands[index].sides);
+                    //Case 1: 1 mảnh đất liền kề
+                    if (index == 0 || index == _lands.length - 1)
+                    {
+                        _lands[i + 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
+                        break;
+                    }
+                    //Case 2: 2 mảnh đất 2 bên
+                    else
+                    {
+                        _lands[i + 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
+                        _lands[i - 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
+                        break;
+                        
+                    }
                 }
             }
         }
