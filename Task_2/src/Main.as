@@ -39,9 +39,17 @@ package {
 
             var landList:Lands = new Lands();
 
-            landList.addLand(land1);
-            landList.addLand(land2);
-            landList.addLand(land3);
+            for (var i:int = 0; i < 10; i++)
+            {
+                trace("Loop no." + (i + 1));
+                land1.changeSides([300,400], 1, "Lisa");
+                land1.updateTax();
+            }
+
+
+            // landList.addLand(land1);
+            // landList.addLand(land2);
+            // landList.addLand(land3);
 
             //landList.changeSideAtIndex(0, [222,333]);
 
@@ -52,7 +60,9 @@ package {
             // propList.addOwnerProps(owner1);
             // propList.addOwnerProps(owner2);
 
-            land1.requestPurchase(owner2); //John mua đất của Lisa
+            //land1.requestPurchase(owner2); //John mua đất của Lisa
+
+
 
             // Setup timer to calculate and print taxes every 10 seconds
             timer = new Timer(5000);

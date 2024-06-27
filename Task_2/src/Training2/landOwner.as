@@ -46,6 +46,13 @@ package Training2
 
         public function onPurchaseRequest(buyer:LandOwner, land:LandPlot):void
         {
+            if (this.name == null)
+            {
+                land.transferLand(buyer);
+                trace("Land " + land.plotID + " has been sold to " + buyer.name);
+                return;
+            }
+
             trace(this.name + " received a purchase request from " + buyer.name + " for land plot " + land.plotID);
 
             if (Math.random() > 0.5)

@@ -11,7 +11,7 @@ package Training2
                 throw new Error("Singleton class. Use getInstance() to get the single instance of this class.");
             }
 
-            resetTaxRate();
+            taxRate = 10;
             changeCount = 0;
         }
 
@@ -24,12 +24,6 @@ package Training2
             return instance;
         }
 
-        private function resetTaxRate():void 
-        {
-            // taxRate = Math.random() * 10;
-            taxRate = 10;
-        }
-
         public function get currentTaxRate():Number 
         {
             return taxRate;
@@ -38,9 +32,10 @@ package Training2
         public function recordChange():void
         {
             changeCount++;
-            if (changeCount % 10 == 0) 
+            if (changeCount % 10 == 0)
             {
                 taxRate *= 1.01; //Increase by 1%
+                changeCount = 0;
             }
         }
     }
