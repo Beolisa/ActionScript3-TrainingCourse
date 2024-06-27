@@ -45,12 +45,14 @@ package {
 
             //landList.changeSideAtIndex(0, [222,333]);
 
-            land1.transferLand(owner2);
-            trace(land1.landOwner.name);
-            trace(owner1.lands.length);
+            // land1.transferLand(owner2);
+            // trace(land1.landOwner.name);
+            // trace(owner1.lands.length);
 
             // propList.addOwnerProps(owner1);
             // propList.addOwnerProps(owner2);
+
+            land1.requestPurchase(owner2); //John mua đất của Lisa
 
             // Setup timer to calculate and print taxes every 10 seconds
             timer = new Timer(5000);

@@ -74,8 +74,19 @@ package Training2
             {
                 _owner.removeLand(this);
             }
-            
+
             newOwner.addLand(this);
+        }
+
+        public function requestPurchase(buyer:LandOwner):void
+        {
+            if (_owner) 
+            {
+                _owner.onPurchaseRequest(buyer, this);
+            } else
+            {
+                trace("Invalid input.");
+            }
         }
     }
 }

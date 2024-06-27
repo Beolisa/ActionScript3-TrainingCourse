@@ -44,6 +44,21 @@ package Training2
         //     trace("The new owner is " + ownerName);
         // }
 
+        public function onPurchaseRequest(buyer:LandOwner, land:LandPlot):void
+        {
+            trace(this.name + " received a purchase request from " + buyer.name + " for land plot " + land.plotID);
+
+            if (Math.random() > 0.5)
+            {
+                trace(this.name + " agress to sell land plot " + land.plotID + " to " + buyer.name);
+                land.transferLand(buyer);
+            }
+            else
+            {
+                trace(this.name + " refuse to sell land plot " + land.plotID);
+            }
+        }
+
         public function getNum():int { //Trả về số lượng mảnh đất mà 1 người chủ có thể sở hữu
             return _lands.length;
         }
