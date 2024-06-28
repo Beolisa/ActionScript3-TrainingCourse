@@ -34,6 +34,7 @@ package Training2
             if(typeNotify == LandOwner.TYPE_ME)
             {
                 trace("Landowner " + _name + " has been notified of a land size change to " + values[0] + "x" + values[1]);
+                
             } else
             {
                 trace("Neighbor " + _name + " has been notified that owner " + ownerName + "'s land " + values[0] + "x" + values[1]);

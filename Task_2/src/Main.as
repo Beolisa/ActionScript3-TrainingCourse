@@ -39,19 +39,20 @@ package {
 
             var landList:Lands = new Lands();
 
+            landList.addLand(land1);
+            landList.addLand(land2);
+            landList.addLand(land3);
+
             for (var i:int = 0; i < 10; i++)
             {
                 trace("Loop no." + (i + 1));
-                land1.changeSides([300,400], 1, "Lisa");
-                land1.updateTax();
+                landList.changeSideAtIndex(0, [222,333]);
+                trace("Current tax rate: " + land1.getCurrentTaxRate);
             }
 
+            trace("Tax rate land2 " + land2.getCurrentTaxRate);
+            trace("Tax rate land3 " +land3.getCurrentTaxRate);
 
-            // landList.addLand(land1);
-            // landList.addLand(land2);
-            // landList.addLand(land3);
-
-            //landList.changeSideAtIndex(0, [222,333]);
 
             // land1.transferLand(owner2);
             // trace(land1.landOwner.name);

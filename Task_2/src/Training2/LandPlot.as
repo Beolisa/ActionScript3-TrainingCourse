@@ -13,6 +13,11 @@ package Training2
             taxRate = LandTax.getInstance().currentTaxRate;
         }
 
+        public function get getCurrentTaxRate():Number
+        {
+            return taxRate = LandTax.getInstance().currentTaxRate;
+        }
+
         public function getName():String 
         {
             return _owner.name;
@@ -42,10 +47,8 @@ package Training2
         public function changeSides(values:Array, type:int, ownerName:String):void 
         {
             this._sides = values;
-            LandTax.getInstance().recordChange();
+            var rate:int = LandTax.getInstance().recordChange();
             _owner.onLandSizeChanged(_sides, _plotId, type, ownerName);
-            updateTaxRate();
-            // updateTax();  
         }
 
         // public function changeOwnerNames(ownerName:String):void 
