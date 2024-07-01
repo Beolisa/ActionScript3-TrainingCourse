@@ -34,17 +34,20 @@ package Training2
         //     taxRate = value;
         // }
 
-        public function recordChange():int
+        public function get getChangeCount():int
+        {
+            return changeCount;
+        }
+
+        public function recordChange():void
         {
             changeCount++;
-            trace("changeCount: " + changeCount);
+
             if (changeCount >= 10)
             {
                 taxRate *= 1.01; //Increase by 1%
                 changeCount = 0;
             }
-
-            return changeCount;
         }
     }
 }

@@ -26,33 +26,31 @@ package {
             land1.plotID = "001";
             land1.sides = [100, 200];
             land1.landOwner = owner1;
+            landList.addLand(land1);
 
             var land2:LandPlot = new LandPlot();
             land2.plotID = "002";
             land2.sides = [200, 300];
             land2.landOwner = owner2;
+            landList.addLand(land2);
 
             var land3:LandPlot = new LandPlot();
             land3.plotID = "003";
             land3.sides = [300, 400];
             land3.landOwner = owner2;
+            landList.addLand(land3);
 
             var landList:Lands = new Lands();
-
-            landList.addLand(land1);
-            landList.addLand(land2);
-            landList.addLand(land3);
 
             for (var i:int = 0; i < 10; i++)
             {
                 trace("Loop no." + (i + 1));
-                landList.changeSideAtIndex(0, [222,333]);
-                trace("Current tax rate: " + land1.getCurrentTaxRate);
+                landList.changeSideAtIndex(2, [222,333]);
             }
 
+            trace("Tax rate land1 " + land1.getCurrentTaxRate);
             trace("Tax rate land2 " + land2.getCurrentTaxRate);
-            trace("Tax rate land3 " +land3.getCurrentTaxRate);
-
+            trace("Tax rate land3 " + land3.getCurrentTaxRate);
 
             // land1.transferLand(owner2);
             // trace(land1.landOwner.name);
@@ -62,6 +60,7 @@ package {
             // propList.addOwnerProps(owner2);
 
             //land1.requestPurchase(owner2); //John mua đất của Lisa
+            // ownner.requestPurchase()
 
 
 
@@ -72,7 +71,7 @@ package {
         }
 
         private function calandPrintTaxes(event:TimerEvent):void {
-            var owners:Array = propList.owners;
+            var owners:Vector.<LandOwner> = propList.owners;
 
             for each (var owner:LandOwner in owners) {
                 var totalTax:Number = owner.calTotalTax();

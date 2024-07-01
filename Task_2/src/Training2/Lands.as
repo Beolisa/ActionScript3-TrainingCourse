@@ -28,36 +28,47 @@ package Training2 {
                 trace("Index out of bounds");
             }
 
-            //Notify neighbors
-            for (var i:int = 0; i < _lands.length; i++) 
+            notifyNeighbor(index);
+
+            //Update taxRate for the following lands
+            // var nRate:int = LandTax.getInstance().getChangeCount;
+            // trace("nRate: " + nRate);
+
+            if (index == 0)
             {
-                var land:LandPlot = _lands[i];
-                if (land != this && _lands.length < 0)
-                {
-                    //Case 1: 1 mảnh đất liền kề
-                    if (index == 0)
-                    {
-                        _lands[i + 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
-                    }
+                _lands[index + 1].updateTaxRate();
+            }
+            else if (index == _lands.length - 1 && _lands.length > 1)
+            {
+                _lands[index - 1].updateTaxRate();
+            }
+            //Case 2: 2 mảnh đất 2 bên
+            else 
+            {
+                _lands[index + 1].updateTaxRate();
+                _lands[index - 1].updateTaxRate();
+            }
+            
+        }
 
-                    if (index == _lands.length - 1 && _lands.length - 1 < 0)
-                    {
-                        _lands[i - 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
-                    }
-                    //Case 2: 2 mảnh đất 2 bên
-                    else
-                    {
-                        _lands[i + 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);
-                        _lands[i - 1].changeSides(_lands[index].sides, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name);                       
-                    }
-                }
-
-                for (var j:int = 0; j < _lands.length; j++) {
-                    if (j != index && (j != index - 1 || index == 0) && (j != index + 1 || index == _lands.length - 1)) {
-                        _lands[j].taxRate = 10;
-                    }
-                }
+        public function notifyNeighbor(index:int):void
+        {
+            //Case 1: 1 mảnh đất liền kề
+            if (index == 0)
+            {
+                _lands[index + 1].landOwner.onLandSizeChanged(_lands[index].sides, _lands[index].plotID, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name)
+            }
+            else if (index == _lands.length - 1 && _lands.length > 1)
+            {
+                _lands[index - 1].landOwner.onLandSizeChanged(_lands[index].sides, _lands[index].plotID, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name)
+            }
+            //Case 2: 2 mảnh đất 2 bên
+            else 
+            {
+                _lands[index + 1].landOwner.onLandSizeChanged(_lands[index].sides, _lands[index].plotID, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name)
+                _lands[index - 1].landOwner.onLandSizeChanged(_lands[index].sides, _lands[index].plotID, LandOwner.TYPE_NEBOR, _lands[index].landOwner.name)
             }
         }
+
     }
 }
